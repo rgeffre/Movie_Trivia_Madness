@@ -1,10 +1,20 @@
 h1 {
 	text-align: center;
-	font-color: ;
-	font-size: 20px;
+	color: #9C2D0D;
+	font-size: 60px;
 }
 
 .submit_btn {
+	float: center;
+	background-color: #E0A907;
+	border: none;
+	color: #020203;
+	padding: 15px 32px;
+	text-align: center;
+	display: inline-block;
+	font-size: 16px;
+	width: 250px;
+
 	
 }
 
