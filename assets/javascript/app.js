@@ -10,19 +10,14 @@ $(document).ready(function() {
             //TODO: Create a timer that begins the countdown after the "Action" button is pressed.
             $("#submit").click(function() {
                     var counter = 60;
-                    setInterval(function() {
+                    var downloadTimer = setInterval(function() {
                             counter--;
-                            if (counter >= 0) {
-                                div = document.getElementById("countdown");
-                                div.innerHTML = counter;
-                            }
-                        }
-                        if (counter === = 0) {
-                            alert("Sorry you are out of time");
-                            clearInterval(counter);
+                            document.getElementById("countdown").textContent = counter;
+                            if (counter <= 0) 
+                            	alert("Sorry you are out of time");
+                            	clearInterval(downloadTimer);
                         }
                     }, 1000);
-            });
     //TODO: create an array for the questions and answers
     var questions = [{
             question: "Who was the first actor to be chosen as Indiana Jones?",
@@ -47,6 +42,10 @@ $(document).ready(function() {
 for (var i = 0; i < questions.length; i++) {
     var question = questions[i].question;
     console.log(question);
+
+ };
+
+ //TODO: Display questions and possible answers
     var options = questions[i].choices;
     document.body.appendChild(document.createElement("br"));
     var name = "radio + i";
@@ -61,13 +60,13 @@ for (var i = 0; i < questions.length; i++) {
         label.innerHTML = options[opt];
         document.body.appendChild(label);
         document.body.appendChild(document.createElement("br"));
-    };
+    }
 
     document.body.appendChild(document.createElement("br"));
-};
+}
 
 
-//TODO: Display questions and possible answers
+//Set up event listener for on click function
 
 
 
