@@ -4,18 +4,14 @@ h1 {
 	font-size: 60px;
 }
 
-.submit_btn {
-	float: center;
+.btn {
+	width: 100px;
+	margin: 0 auto;
 	background-color: #E0A907;
-	border: none;
+	display: block;
 	color: #020203;
-	padding: 15px 32px;
 	text-align: center;
-	display: inline-block;
 	font-size: 16px;
-	width: 250px;
-
-	
 }
 
 body {

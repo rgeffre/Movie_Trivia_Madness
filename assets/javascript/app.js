@@ -1,84 +1,95 @@
 $(document).ready(function() {
 
         //TODO: Create variables used in the game
-        var correct = 0;
-        var incorrect = 0;
-        var noAnswer = 0;
-        var quiz, question, choice, choices, chA, chB, chC, chD;
+        var correctAnswers = 0;
+        var incorrectAnswers = 0;
+        var noAnswers = 0;
+        var currentQuestion = 0;
+        var question, choices,
 
-        //TODO: create an array for the questions and answers
-        var questions = [{
-                question: "Who was the first actor to be chosen as Indiana Jones",
-                answer1: "Harrison Ford",
-                answer2: "Peter Coyote",
-                answer3: "Tom Selleck",
-                answer4: "Tim Matheson",
-                correctanswer: "C"
-            },
-
-
-            ["Who directed to movie 'Three Men and a Baby'", "Rob Reiner", "Leonard Nimoy", "Ron Howard", "Garry Marshall", "B"],
-            ["What film did Steven Spielberg submit for his college student film requirement", "ET", "Close Encounters of the Third Kind", "Minority Report", "Schindlers List", "D"],
-            ["When translated from Italian who is Mr. Kiss Kiss Bang Bang"
-                "James Bond", "Clint Eastwood", "Al Pacino", "Ethan Hunt"
-                "A"
-            ]
-        ];
-
-        //TODO: Create a timer that begins the countdown after the "Action" button is pressed.
-        $("#submit").click(function() {
-                var counter = 60;
-                setInterval(function() {
-                        counter--;
-                        if (counter >= 0) {
-                            span = document.getElementById("countdown");
-                            span.innerHTML = counter;
+            //TODO: Create a timer that begins the countdown after the "Action" button is pressed.
+            $("#submit").click(function() {
+                    var counter = 60;
+                    setInterval(function() {
+                            counter--;
+                            if (counter >= 0) {
+                                div = document.getElementById("countdown");
+                                div.innerHTML = counter;
+                            }
                         }
-                    }
-                    if (counter === = 0) {
-                        alert("Sorry you are out of time");
-                        clearInterval(counter);
-                    }
-                }, 1000);
-        });
+                        if (counter === = 0) {
+                            alert("Sorry you are out of time");
+                            clearInterval(counter);
+                        }
+                    }, 1000);
+            });
+    //TODO: create an array for the questions and answers
+    var questions = [{
+            question: "Who was the first actor to be chosen as Indiana Jones?",
+            choices: ["Harrison Ford", "Peter Coyote", "Tom Selleck", "Tim Matheson"],
+            answer: 3
+        }, {
+            question: "Who directed to movie 'Three Men and a Baby'?",
+            choices: ["Rob Reiner", "Leonard Nimoy", "Ron Howard", "Garry Marshall"],
+            answer: 2
+        },{
+            question: "What film did Steven Spielberg submit for his college student film requirement",
+            choices: ["ET", "Close Encounters of the Third Kind", "Minority Report", "Schindlers List"],
+            answer: 4
+        },{
+            question: "When translated from Italian who is Mr. Kiss Kiss Bang Bang?"
+            choices: ["James Bond", "Clint Eastwood", "Al Pacino", "Ethan Hunt"],
+            answer: 1
+    ]];
+
+
+//TODO: Get data from the array
+for (var i = 0; i < questions.length; i++) {
+    var question = questions[i].question;
+    console.log(question);
+    var options = questions[i].choices;
+    document.body.appendChild(document.createElement("br"));
+    var name = "radio + i";
+    for (var opt in options) {
+
+        var radioEle = document.createElement("input");
+        radioEle.type = "radio";
+        radioEle.value = options[opt];
+        radioele.name = name;
+        document.body.appendChild(radioEle);
+        var label = document.createElement("Label");
+        label.innerHTML = options[opt];
+        document.body.appendChild(label);
+        document.body.appendChild(document.createElement("br"));
+    };
+
+    document.body.appendChild(document.createElement("br"));
+};
+
+
+//TODO: Display questions and possible answers
 
 
 
-    //TODO: Get data from the array
-
-    function get(x) {
-        return document.getElementById(x); //how to do this in jquery?
-    }
-
-    //TODO: Display questions and possible answers
+//Set condition that user cannot click any answers once the timer runs out.
 
 
+//TODO: Create a function that keeps the user from selecting more than one answer
 
-    function createQuestion()[
-        quiz = get("triviaquiz");
-        if (pos >= questions.length) {
-            trivia
-        }
+//compare player answers against the answers in the array 
 
-        answers.innerHTML += < input type = "radio"
-        name = "choices"
-        value = "A" > "+chA+<br>";
-        //Set condition that user cannot click any answers once the timer runs out.
+//tally how many correct answers and store that number in the "correct" variable
 
+//tally how many incorrect answers and store that number in the "incorrect" variable
 
-        //TODO: Create a function that keeps the user from selecting more than one answer
+//tally how many questions were not answered and store that in the "noAnswer" variable
 
-        //compare player answers against the answers in the array 
-        function checkAnswer() {
-            choices = document.getElementByName("choices")
-        }
+//TODO: Display the correct, incorrect and no answer totals on the final page.
 
-        //tally how many correct answers and store that number in the "correct" variable
+//TODO:  Reset Game
+function resetGame() {
+    currentQuestion = 0;
+    correctAnswers = 0;
+    hideScore();
 
-        //tally how many incorrect answers and store that number in the "incorrect" variable
-
-        //tally how many questions were not answered and store that in the "noAnswer" variable
-
-        //TODO: Display the correct, incorrect and no answer totals on the final page.
-
-    });
+};
